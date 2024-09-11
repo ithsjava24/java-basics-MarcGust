@@ -1,5 +1,6 @@
 package org.example;
 
+import java.util.Arrays;
 import java.util.Scanner;
 
 public class App {
@@ -27,9 +28,9 @@ public class App {
             case "2":
                 minMax();
                 break;
-//            case "3":
-//                sortera();
-//                break;
+            case "3":
+                sortera();
+                break;
 //            case "4":
 //                laddningstid();
 //                break;
@@ -73,5 +74,12 @@ public class App {
         System.out.print("Lägsta pris: " + minHour + " - " + minHour + 1 + ", " + minCost + " öre/kWh\n");
         System.out.print("Högsta pris: " + maxHour + " - " + maxHour + 1 + ", " + maxCost + " öre/kWh\n");
         System.out.print("Medelpris: " + averageCost + " öre/kWh\n");
+    }
+
+    public static void sortera() {
+        int[] sortHours = new int[hours];
+        for (int i = 0; i < hours; i++) {
+            sortHours[i] = i;
+        }
     }
 }
