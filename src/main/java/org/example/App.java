@@ -27,15 +27,15 @@ public class App {
             case "2":
                 minMax();
                 break;
-            case "3":
-                sortera();
-                break;
-            case "4":
-                laddningstid();
-                break;
-            case "5":
-                visualisering();
-                break;
+//            case "3":
+//                sortera();
+//                break;
+//            case "4":
+//                laddningstid();
+//                break;
+//            case "5":
+//                visualisering();
+//                break;
             case "e":
                 break;
         }
@@ -47,5 +47,31 @@ public class App {
             System.out.print("Elpriset för timme " + String.format("%02d", i) + "-" + String.format("%02d", i + 1) + ": \n");
             costs[i] = scanner.nextInt();
         }
+    }
+
+    private static void minMax() {
+        int minCost = costs[0];
+        int maxCost = costs[0];
+        int minHour = 0;
+        int maxHour = 0;
+        int sum = 0;
+
+        for (int i = 0; i < hours; i++) {
+            if (costs[i] < minCost) {
+                minCost = costs[i];
+                minHour = i;
+            }
+            if (costs[i] > maxCost) {
+                maxCost = costs[i];
+                maxHour = i;
+            }
+            sum += costs[i];
+        }
+
+        float averageCost = sum / (float) hours;
+
+        System.out.print("Lägsta pris: " + minHour + " - " + minHour + 1 + ", " + minCost + " öre/kWh\n");
+        System.out.print("Högsta pris: " + maxHour + " - " + maxHour + 1 + ", " + maxCost + " öre/kWh\n");
+        System.out.print("Medelpris: " + averageCost + " öre/kWh\n");
     }
 }
