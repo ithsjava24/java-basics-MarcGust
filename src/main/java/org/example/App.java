@@ -1,11 +1,10 @@
 package org.example;
 
-import java.util.Arrays;
 import java.util.Scanner;
 
 public class App {
     private static final int hours = 24;
-    private static int[] costs = new int[hours];
+    private static final int[] costs = new int[hours];
 
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
@@ -21,24 +20,29 @@ public class App {
                 """;
         System.out.println(meny);
 
-        switch (scanner.nextLine()) {
-            case "1":
-                inmatning(scanner);
-                break;
-            case "2":
-                minMax();
-                break;
-            case "3":
-                sortera();
-                break;
+        while (true) {
+            switch (scanner.nextLine()) {
+                case "1":
+                    inmatning(scanner);
+                    break;
+                case "2":
+                    minMax();
+                    break;
+                case "3":
+                    sortera();
+                    break;
 //            case "4":
 //                laddningstid();
 //                break;
 //            case "5":
 //                visualisering();
 //                break;
-            case "e":
-                break;
+                case "e":
+                    return;
+                default:
+                    System.out.println("Felaktigt val. Välj igen.");
+                    break;
+            }
         }
     }
 
