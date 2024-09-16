@@ -123,6 +123,6 @@ public class App {
     }
 
     public static void  visualisering() {
-        System.out.println("Work in progress");
+        System.out.println("Working on it");
     }
 }
