@@ -1,5 +1,6 @@
 package org.example;
 
+import java.util.Arrays;
 import java.util.Scanner;
 
 public class App {
@@ -31,12 +32,12 @@ public class App {
                 case "3":
                     sortera();
                     break;
-//            case "4":
-//                laddningstid();
-//                break;
-//            case "5":
-//                visualisering();
-//                break;
+                case "4":
+                    laddningstid();
+                    break;
+//                case "5":
+//                    visualisering();
+//                    break;
                 case "e":
                     return;
                 default:
@@ -48,10 +49,12 @@ public class App {
 
     private static void inmatning(Scanner scanner) {
         System.out.print("Ange dygnets elpriser: \n");
-        for (int i = 0; 0 < hours; i++) {
-            System.out.print("Elpriset för timme " + String.format("%02d", i) + "-" + String.format("%02d", i + 1) + ": \n");
+        for (int i = 0; i < hours; i++) {
+            System.out.printf("Elpriset för timme " + String.format("%02d", i) + "-" + String.format("%02d", i + 1) + ": \n");
             costs[i] = scanner.nextInt();
         }
+
+        scanner.nextLine();
     }
 
     private static void minMax() {
@@ -75,15 +78,42 @@ public class App {
 
         float averageCost = sum / (float) hours;
 
-        System.out.print("Lägsta pris: " + minHour + " - " + minHour + 1 + ", " + minCost + " öre/kWh\n");
-        System.out.print("Högsta pris: " + maxHour + " - " + maxHour + 1 + ", " + maxCost + " öre/kWh\n");
-        System.out.print("Medelpris: " + averageCost + " öre/kWh\n");
+//        System.out.printf("Lägsta pris: " + minHour + " - " + minHour + 1 + ", " + minCost + " öre/kWh\n");
+//        System.out.printf("Högsta pris: " + maxHour + " - " + maxHour + 1 + ", " + maxCost + " öre/kWh\n");
+//        System.out.printf("Medelpris: " + averageCost + " öre/kWh\n");
+        System.out.printf("Lägsta pris: %02d-%02d, %d öre/kWh\n", minHour, minHour + 1, minCost);
+        System.out.printf("Högsta pris: %02d-%02d, %d öre/kWh\n", maxHour, maxHour + 1, maxCost);
+        System.out.printf("Medelpris: %.2f öre/kWh\n", averageCost);
     }
 
     public static void sortera() {
-        int[] sortHours = new int[hours];
-        for (int i = 0; i < hours; i++) {
-            sortHours[i] = i;
+        int[] sortCosts = Arrays.copyOf(costs, costs.length);
+        Arrays.sort(sortCosts);
+
+        System.out.print("Dyrast till billigast tider:\n");
+        for (int i = sortCosts.length - 1; i >= 0; i--) {
+            for (int j = 0; j < costs.length; j++) {
+                if (costs[j] == sortCosts[i]) {
+                    System.out.printf("%02d-%02d: %d öre\n", j, j + 1, costs[j]);
+                    break;
+                }
+            }
         }
+    }
+
+    public static void laddningstid() {
+        int minSum = Integer.MAX_VALUE;
+        int startHour = 0;
+
+        for (int i = 0; i <= 20; i++) {
+            int sum = costs[i] + costs[i + 1] + costs[i + 2] + costs[i + 3];
+            if (sum < minSum) {
+                minSum = sum;
+                startHour = i;
+            }
+        }
+
+        double averageCost = minSum / 4.0;
+        System.out.printf("Bästa fyratimmars perioden för laddning:\n %02d-%02d med medelpris: %.2f öre", startHour, startHour + 4, averageCost);
     }
 }
