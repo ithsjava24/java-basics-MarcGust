@@ -38,9 +38,9 @@ public class App {
                 case "4":
                     laddningstid();
                     break;
-//                case "5":
-//                    visualisering();
-//                    break;
+                case "5":
+                    visualisering();
+                    break;
                 case "e":
                     return;
                 default:
@@ -50,7 +50,7 @@ public class App {
         }
     }
 
-    private static void inmatning(Scanner scanner) {
+    public static void inmatning(Scanner scanner) {
         System.out.print("Ange dygnets elpriser: \n");
         for (int i = 0; i < hours; i++) {
             System.out.printf("Elpriset för timme " + String.format("%02d", i) + "-" + String.format("%02d", i + 1) + ": \n");
@@ -60,7 +60,7 @@ public class App {
         scanner.nextLine();
     }
 
-    private static void minMax() {
+    public static void minMax() {
         int minCost = costs[0];
         int maxCost = costs[0];
         int minHour = 0;
@@ -120,5 +120,9 @@ public class App {
 
         double averageCost = minSum / 4.0;
         System.out.printf("Påbörja laddning klockan %d\nMedelpris 4h: %.1f öre/kWh\n", startHour, averageCost);
+    }
+
+    public static void  visualisering() {
+
     }
 }
