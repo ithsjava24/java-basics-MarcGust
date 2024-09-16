@@ -22,7 +22,7 @@ public class App {
         System.out.println(meny);
 
         while (true) {
-            switch (scanner.nextLine()) {
+            switch (scanner.nextLine().toLowerCase()) {
                 case "1":
                     inmatning(scanner);
                     break;
@@ -78,9 +78,6 @@ public class App {
 
         float averageCost = sum / (float) hours;
 
-//        System.out.printf("Lägsta pris: " + minHour + " - " + minHour + 1 + ", " + minCost + " öre/kWh\n");
-//        System.out.printf("Högsta pris: " + maxHour + " - " + maxHour + 1 + ", " + maxCost + " öre/kWh\n");
-//        System.out.printf("Medelpris: " + averageCost + " öre/kWh\n");
         System.out.printf("Lägsta pris: %02d-%02d, %d öre/kWh\n", minHour, minHour + 1, minCost);
         System.out.printf("Högsta pris: %02d-%02d, %d öre/kWh\n", maxHour, maxHour + 1, maxCost);
         System.out.printf("Medelpris: %.2f öre/kWh\n", averageCost);
