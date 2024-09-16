@@ -94,7 +94,7 @@ public class App {
         for (int i = sortCosts.length - 1; i >= 0; i--) {
             for (int j = 0; j < costs.length; j++) {
                 if (costs[j] == sortCosts[i] && !written[j]) {
-                    System.out.printf("%02d-%02d: %d öre\n", j, j + 1, costs[j]);
+                    System.out.printf("%02d-%02d %d öre\n", j, j + 1, costs[j]);
                     written[j] = true;
                     break;
                 }
@@ -115,6 +115,6 @@ public class App {
         }
 
         double averageCost = minSum / 4.0;
-        System.out.printf("Bästa fyratimmars perioden för laddning: %02d-%02d med medelpris: %.2f öre\n", startHour, startHour + 4, averageCost);
+        System.out.printf("Påbörja laddning klockan %d\nMedelpris 4h: %.1f öre/kWh\n", startHour, averageCost);
     }
 }
