@@ -72,10 +72,12 @@ public class App {
                 minCost = costs[i];
                 minHour = i;
             }
+
             if (costs[i] > maxCost) {
                 maxCost = costs[i];
                 maxHour = i;
             }
+
             sum += costs[i];
         }
 
