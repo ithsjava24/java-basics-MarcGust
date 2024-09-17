@@ -124,57 +124,5 @@ public class App {
 
     public static void  visualisering() {
         System.out.println("Work in progress");
-
-        /*// Bestäm bredden på grafen (antal kolumner) och höjd på grafen (antal rader)
-        int maxGrafBredd = 76;
-        int maxHojd = 10;
-
-        // Hitta det högsta och lägsta priset för att skapa en skala
-        double maxPris = Double.MIN_VALUE;
-        double minPris = Double.MAX_VALUE;
-        for (double pris : elpriser) {
-            if (pris > maxPris) maxPris = pris;
-            if (pris < minPris) minPris = pris;
-        }
-
-        // Beräkna skalfaktorn för att passa priserna inom grafens bredd
-        double skalfaktor = (maxGrafBredd - 1) / (maxPris - minPris);
-
-        // Skapa en matris för grafen, fylld med mellanslag
-        char[][] graf = new char[maxHojd][24];
-        for (int i = 0; i < maxHojd; i++) {
-            for (int j = 0; j < 24; j++) {
-                graf[i][j] = ' ';
-            }
-        }
-
-        // Fyll i matrisen med "x" baserat på priserna
-        for (int i = 0; i < 24; i++) {
-            // Beräkna antal "x" baserat på priset och skalfaktorn
-            int antalX = (int) Math.round((elpriser[i] - minPris) * skalfaktor);
-            // Fyll i "x" i grafen
-            for (int j = 0; j < Math.min(antalX, maxHojd); j++) {
-                graf[maxHojd - j - 1][i] = 'x';
-            }
-        }
-
-        // Skriv ut grafen från högsta till lägsta pris
-        double steg = (maxPris - minPris) / maxHojd;
-        for (int i = 0; i < maxHojd; i++) {
-            double nivArPris = maxPris - i * steg;
-            System.out.printf("%4.0f| ", nivArPris);
-            for (int j = 0; j < 24; j++) {
-                System.out.print(graf[i][j]);
-            }
-            System.out.println();
-        }
-
-        // Skriv ut axeln med timmarna (00-23)
-        System.out.println("   |------------------------------------------------------------------------");
-        System.out.print("   |");
-        for (int i = 0; i < 24; i++) {
-            System.out.printf(" %02d", i);
-        }
-        System.out.println();*/
     }
 }
