@@ -148,5 +148,16 @@ public class App {
             }
             System.out.println();
         }
+
+        System.out.print("    |");
+        for (int i = 0; i < hours; i++) {
+            System.out.print("---");
+        }
+        System.out.println("-");
+
+        System.out.print("     ");
+        for (int i = 0; i < hours; i++) {
+            System.out.printf("%02d ", i);
+        }
     }
 }
