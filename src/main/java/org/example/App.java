@@ -141,7 +141,7 @@ public class App {
 
             for (int i = 0; i < hours; i++) {
                 if (costs[i] >= costSpan) {
-                    System.out.print("x  ");
+                    System.out.print(" x ");
                 } else {
                     System.out.print("   ");
                 }
@@ -153,11 +153,11 @@ public class App {
         for (int i = 0; i < hours; i++) {
             System.out.print("---");
         }
-        System.out.println("-");
+        System.out.print("\n");
 
-        System.out.print("     ");
+        System.out.print("    |");
         for (int i = 0; i < hours; i++) {
-            System.out.printf("%02d ", i);
+            System.out.printf(" %02d", i);
         }
     }
 }
