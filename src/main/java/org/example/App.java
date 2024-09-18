@@ -121,8 +121,19 @@ public class App {
         double averageCost = minSum / 4.0;
         System.out.printf("Påbörja laddning klockan %d\nMedelpris 4h: %.1f öre/kWh\n", startHour, averageCost);
     }
+    public static void visualisering() {
+        int maxCost = costs[0];
+        int minCost = costs[0];
 
-    public static void  visualisering() {
-        System.out.println("Work in progress");
+        for (int i = 1; i < hours; i++) {
+            if (costs[i] > maxCost) {
+                maxCost = costs[i];
+            }
+            if (costs[i] < minCost) {
+                minCost = costs[i];
+            }
+        }
+
+
     }
 }
