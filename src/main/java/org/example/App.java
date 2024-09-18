@@ -134,6 +134,19 @@ public class App {
             }
         }
 
+        int axisHeight = (maxCost - minCost)/5;
 
+        for (int costSpan = maxCost; costSpan >= minCost; costSpan -= axisHeight) {
+            System.out.printf("%4d| ", costSpan);
+
+            for (int i = 0; i < hours; i++) {
+                if (costs[i] >= costSpan) {
+                    System.out.print("x  ");
+                } else {
+                    System.out.print("   ");
+                }
+            }
+            System.out.println();
+        }
     }
 }
