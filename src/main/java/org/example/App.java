@@ -134,11 +134,19 @@ public class App {
             }
         }
 
-        int axisHeight = (maxCost - minCost)/5;
+        System.out.printf("%4d| ", maxCost);
+        for (int i = 0; i < hours; i++) {
+            if (costs[i] >= maxCost) {
+                System.out.print(" x ");
+            } else {
+                System.out.print("   ");
+            }
+        }
+        System.out.println();
 
-        for (int costSpan = maxCost; costSpan >= minCost; costSpan -= axisHeight) {
-            System.out.printf("%4d| ", costSpan);
-
+        int yAxis = (maxCost - minCost) / 5;
+        for (int costSpan = maxCost - yAxis; costSpan > minCost; costSpan -= yAxis) {
+            System.out.print("    | ");
             for (int i = 0; i < hours; i++) {
                 if (costs[i] >= costSpan) {
                     System.out.print(" x ");
@@ -149,15 +157,26 @@ public class App {
             System.out.println();
         }
 
+        System.out.printf("%4d| ", minCost);
+        for (int i = 0; i < hours; i++) {
+            if (costs[i] >= minCost) {
+                System.out.print(" x ");
+            } else {
+                System.out.print("   ");
+            }
+        }
+        System.out.println();
+
         System.out.print("    |");
         for (int i = 0; i < hours; i++) {
             System.out.print("---");
         }
-        System.out.print("\n");
+        System.out.println();
 
-        System.out.print("    |");
+        System.out.print("    | ");
         for (int i = 0; i < hours; i++) {
-            System.out.printf(" %02d", i);
+            System.out.printf("%02d ", i);
         }
+        System.out.println();
     }
 }
