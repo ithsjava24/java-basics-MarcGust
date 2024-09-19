@@ -148,7 +148,7 @@ public class App {
         System.out.println();
 
         for (int costSpan = maxCost - yAxis; costSpan > minCost; costSpan -= yAxis) {
-            System.out.printf("    | ");
+            System.out.print("    | ");
             for (int i = 0; i < hours; i++) {
                 if (costs[i] >= costSpan) {
                     System.out.print(" x ");
