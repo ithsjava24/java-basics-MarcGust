@@ -124,7 +124,6 @@ public class App {
     public static void visualisering() {
         int maxCost = costs[0];
         int minCost = costs[0];
-        minCost = (minCost / 10) * 10;
 
         for (int i = 1; i < hours; i++) {
             if (costs[i] > maxCost) {
@@ -136,8 +135,9 @@ public class App {
         }
 
         int yAxis = (maxCost - minCost) / 5;
+        minCost = (minCost / 10) * 10;
 
-        System.out.printf("%4d|", maxCost);
+        System.out.printf("%4d| ", maxCost);
         for (int i = 0; i < hours; i++) {
             if (costs[i] >= maxCost) {
                 System.out.print(" x ");
